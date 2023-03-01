@@ -1,0 +1,38 @@
+name: Test grpc
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/test-grpc.yml'
+      - 'docker/*.Dockerfile'
+  push:
+    branches: [master]
+    paths:
+      - '.github/workflows/test-grpc.yml'
+      - 'docker/*.Dockerfile'
+  workflow_dispatch:
+
+jobs:
+  build-grpc:
+    runs-on: ubuntu-22.04
+    name: Build GRPC • ${{ matrix.docker_file }}
+
+    strategy:
+      fail-fast: false
+      matrix:
+        docker_file: ["Alpine_3_15", "Ubuntu_22_04"]
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Build Requirements
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          file: docker/${{ matrix.docker_file }}.Dockerfile
+          push: false
+          cache-from: type=gha,scope=${{ matrix.docker_file }}
+          cache-to: type=gha,mode=min,scope=${{ matrix.docker_file }}
+          target: base
