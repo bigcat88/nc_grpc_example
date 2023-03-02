@@ -13,14 +13,14 @@ on:
   workflow_dispatch:
 
 jobs:
-  build-grpc:
+  p_o_c:
     runs-on: ubuntu-22.04
-    name: Build GRPC • ${{ matrix.docker_file }}
+    name: ${{ matrix.docker_file }}
 
     strategy:
       fail-fast: false
       matrix:
-        docker_file: ["Alpine_3_15", "Ubuntu_22_04"]
+        docker_file: ["Ubuntu_22_04"]
 
     steps:
       - uses: actions/checkout@v3
@@ -34,5 +34,13 @@ jobs:
           file: docker/${{ matrix.docker_file }}.Dockerfile
           push: false
           cache-from: type=gha,scope=${{ matrix.docker_file }}
-          cache-to: type=gha,mode=min,scope=${{ matrix.docker_file }}
+          cache-to: type=gha,mode=max,scope=${{ matrix.docker_file }}
           target: base
+
+      - name: Proof of Concept
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          file: docker/${{ matrix.docker_file }}.Dockerfile
+          push: false
+          target: proof_of_concept
