@@ -7,7 +7,7 @@ RUN \
     wget \
     curl \
     python3-dev \
-    pytohn3-pip
+    python3-pip
 
 # Building GRPC from source
 
