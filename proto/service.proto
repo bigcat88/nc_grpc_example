@@ -1,19 +1,21 @@
 syntax = "proto3";
 
-package OCA.Cloud_Py_API.Proto;
+package OCA.NC_GRPC_Example.Proto;
 
 import "core.proto";
 import "fs.proto";
 
 
-service CloudPyApiCore {
-  rpc TaskExit (OCA.Cloud_Py_API.Proto.TaskExitRequest) returns (OCA.Cloud_Py_API.Proto.Empty) {}
-  rpc TaskLog (OCA.Cloud_Py_API.Proto.TaskLogRequest) returns (OCA.Cloud_Py_API.Proto.Empty) {}
-  rpc FsGetInfo (OCA.Cloud_Py_API.Proto.FsGetInfoRequest) returns (OCA.Cloud_Py_API.Proto.FsListReply) {}
-  rpc FsList (OCA.Cloud_Py_API.Proto.FsListRequest) returns (OCA.Cloud_Py_API.Proto.FsListReply) {}
-  rpc FsRead (OCA.Cloud_Py_API.Proto.FsReadRequest) returns (stream OCA.Cloud_Py_API.Proto.FsReadReply) {}
-  rpc FsCreate (OCA.Cloud_Py_API.Proto.FsCreateRequest) returns (OCA.Cloud_Py_API.Proto.FsCreateReply) {}
-  rpc FsWrite (stream OCA.Cloud_Py_API.Proto.FsWriteRequest) returns (OCA.Cloud_Py_API.Proto.FsReply) {}
-  rpc FsDelete (OCA.Cloud_Py_API.Proto.FsDeleteRequest) returns (OCA.Cloud_Py_API.Proto.FsReply) {}
-  rpc FsMove (OCA.Cloud_Py_API.Proto.FsMoveRequest) returns (OCA.Cloud_Py_API.Proto.FsMoveReply) {}
+service NCGRPCExampleCore {
+  rpc TaskInit (OCA.NC_GRPC_Example.Proto.Empty) returns (OCA.NC_GRPC_Example.Proto.TaskInitReply) {}
+  rpc TaskStatus (OCA.NC_GRPC_Example.Proto.TaskSetStatusRequest) returns (OCA.NC_GRPC_Example.Proto.Empty) {}
+  rpc TaskExit (OCA.NC_GRPC_Example.Proto.TaskExitRequest) returns (OCA.NC_GRPC_Example.Proto.Empty) {}
+  rpc TaskLog (OCA.NC_GRPC_Example.Proto.TaskLogRequest) returns (OCA.NC_GRPC_Example.Proto.Empty) {}
+  rpc FsGetInfo (OCA.NC_GRPC_Example.Proto.FsGetInfoRequest) returns (OCA.NC_GRPC_Example.Proto.FsListReply) {}
+  rpc FsList (OCA.NC_GRPC_Example.Proto.FsListRequest) returns (OCA.NC_GRPC_Example.Proto.FsListReply) {}
+  rpc FsRead (OCA.NC_GRPC_Example.Proto.FsReadRequest) returns (stream OCA.NC_GRPC_Example.Proto.FsReadReply) {}
+  rpc FsCreate (OCA.NC_GRPC_Example.Proto.FsCreateRequest) returns (OCA.NC_GRPC_Example.Proto.FsCreateReply) {}
+  rpc FsWrite (stream OCA.NC_GRPC_Example.Proto.FsWriteRequest) returns (OCA.NC_GRPC_Example.Proto.FsReply) {}
+  rpc FsDelete (OCA.NC_GRPC_Example.Proto.FsDeleteRequest) returns (OCA.NC_GRPC_Example.Proto.FsReply) {}
+  rpc FsMove (OCA.NC_GRPC_Example.Proto.FsMoveRequest) returns (OCA.NC_GRPC_Example.Proto.FsMoveReply) {}
 }

@@ -1,0 +1,24 @@
+# Declare files that always have LF line endings on checkout
+* text eol=lf
+
+# Denote all files that are truly binary and should not be modified
+js/* binary
+screenshots/* binary
+lib/Proto/* binary
+*.bin binary
+*.heif binary
+*.heic binary
+*.hif binary
+*.avif binary
+*.png binary
+*.gif binary
+*.webp binary
+*.tiff binary
+*.jpeg binary
+*.jpg binary
+*.svg binary
+
+# Files to exclude from GitHub Languages statistics
+*.Dockerfile linguist-vendored=true
+3rdparty/* linguist-vendored=true
+lib/Proto/* linguist-vendored=true

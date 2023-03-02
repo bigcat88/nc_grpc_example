@@ -1,0 +1,14 @@
+{
+	"name": "nc_grpc_example/3rdparty",
+	"description": "3rdparty components for nc_grpc_example",
+	"license": "APGL-3.0-or-later",
+	"require": {
+		"google/protobuf": "3.19",
+		"grpc/grpc": "1.42"
+	},
+	"config": {
+		"vendor-dir": ".",
+		"optimize-autoloader": true,
+		"classmap-authoritative": true
+	}
+}

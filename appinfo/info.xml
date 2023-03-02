@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<info xmlns:xsi= "http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/info.xsd">
+	<id>nc_grpc_example</id>
+	<name>Nextcloud gRPC API Example</name>
+	<summary>Nextcloud API (Framework) based on gRPC</summary>
+	<description>
+	<![CDATA[
+Nextcloud gRPC API Framework
+	]]>
+	</description>
+	<version>0.1.0</version>
+	<licence>agpl</licence>
+	<author mail="andrey18106x@gmail.com" homepage="https://github.com/andrey18106">Andrey Borysenko</author>
+	<author mail="bigcat88@icloud.com" homepage="https://github.com/bigcat88">Alexander Piskun</author>
+	<namespace>NC_GRPC_Example</namespace>
+	<category>tools</category>
+	<website>https://github.com/bigcat88/nc_grpc_example</website>
+	<bugs>https://github.com/bigcat88/nc_grpc_example/issues</bugs>
+	<repository type="git">https://github.com/bigcat88/nc_grpc_example</repository>
+	<dependencies>
+		<php min-version="7.4" min-int-size="64" />
+		<nextcloud min-version="24" max-version="26" />
+	</dependencies>
+	<commands>
+		<command>OCA\NC_GRPC_Example\Command\RunGrpcServerCommand</command>
+		<command>OCA\NC_GRPC_Example\Command\RunGrpcBgServerCommand</command>
+		<command>OCA\NC_GRPC_Example\Command\RunGrpcClientTaskInitCommand</command>
+		<command>OCA\NC_GRPC_Example\Command\RunGrpcClientTaskStatusCommand</command>
+		<command>OCA\NC_GRPC_Example\Command\RunGrpcClientTaskExitCommand</command>
+		<command>OCA\NC_GRPC_Example\Command\RunGrpcClientTaskLogCommand</command>
+		<command>OCA\NC_GRPC_Example\Command\RunGrpcClientFsInfoCommand</command>
+		<command>OCA\NC_GRPC_Example\Command\RunGrpcClientFsListCommand</command>
+		<command>OCA\NC_GRPC_Example\Command\RunGrpcClientFsReadCommand</command>
+		<command>OCA\NC_GRPC_Example\Command\RunGrpcClientFsWriteCommand</command>
+		<command>OCA\NC_GRPC_Example\Command\RunGrpcClientFsCreateCommand</command>
+		<command>OCA\NC_GRPC_Example\Command\RunGrpcClientFsDeleteCommand</command>
+		<command>OCA\NC_GRPC_Example\Command\RunGrpcClientFsMoveCommand</command>
+		<command>OCA\NC_GRPC_Example\Command\RunGrpcClientAppCheckCommand</command>
+		<command>OCA\NC_GRPC_Example\Command\FrameworkInstallCommand</command>
+		<command>OCA\NC_GRPC_Example\Command\FrameworkCheckCommand</command>
+	</commands>
+</info>

@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package OCA.Cloud_Py_API.Proto;
+package OCA.NC_GRPC_Example.Proto;
 
 enum fsResultCode {
   NO_ERROR = 0;
