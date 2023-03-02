@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package OCA.Cloud_Py_API.Proto;
+
+import "core.proto";
+import "fs.proto";
+
+
+service CloudPyApiCore {
+  rpc TaskExit (OCA.Cloud_Py_API.Proto.TaskExitRequest) returns (OCA.Cloud_Py_API.Proto.Empty) {}
+  rpc TaskLog (OCA.Cloud_Py_API.Proto.TaskLogRequest) returns (OCA.Cloud_Py_API.Proto.Empty) {}
+  rpc FsGetInfo (OCA.Cloud_Py_API.Proto.FsGetInfoRequest) returns (OCA.Cloud_Py_API.Proto.FsListReply) {}
+  rpc FsList (OCA.Cloud_Py_API.Proto.FsListRequest) returns (OCA.Cloud_Py_API.Proto.FsListReply) {}
+  rpc FsRead (OCA.Cloud_Py_API.Proto.FsReadRequest) returns (stream OCA.Cloud_Py_API.Proto.FsReadReply) {}
+  rpc FsCreate (OCA.Cloud_Py_API.Proto.FsCreateRequest) returns (OCA.Cloud_Py_API.Proto.FsCreateReply) {}
+  rpc FsWrite (stream OCA.Cloud_Py_API.Proto.FsWriteRequest) returns (OCA.Cloud_Py_API.Proto.FsReply) {}
+  rpc FsDelete (OCA.Cloud_Py_API.Proto.FsDeleteRequest) returns (OCA.Cloud_Py_API.Proto.FsReply) {}
+  rpc FsMove (OCA.Cloud_Py_API.Proto.FsMoveRequest) returns (OCA.Cloud_Py_API.Proto.FsMoveReply) {}
+}

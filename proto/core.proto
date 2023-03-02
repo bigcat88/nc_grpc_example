@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package OCA.Cloud_Py_API.Proto;
+
+/*
+  All communications messages send by client, server only replies on them.
+
+  Client must set TaskStatus and send TaskExit messages before exit.
+  Shutdown: server closes socket.
+  Remark: Both client and server part, must stop work after communication channel become broken.
+*/
+
+
+/* docs.nextcloud.com/server/latest/admin_manual/configuration_server/logging_configuration.html#log-level */
+enum logLvl {
+    DEBUG = 0;
+    INFO = 1;
+    WARN = 2;
+    ERROR = 3;
+    FATAL = 4;
+}
+
+message Empty { }
+
+message TaskExitRequest {                 // No reply. Server must close pipe/socket after this message.
+  string result = 1;                      // Result of task, if any.
+}
+
+message TaskLogRequest {                  // No reply.
+  logLvl log_lvl = 1;
+  string module = 2;                      // What module logs belongs to.
+  repeated string content = 3;            // One or more strings to put to log.
+}

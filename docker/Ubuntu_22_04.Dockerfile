@@ -9,7 +9,7 @@ RUN \
     python3-dev \
     python3-pip
 
-# Building GRPC from source
+# Building gRPC from source
 
 RUN \
   curl -sS https://getcomposer.org/installer | php && \
@@ -29,4 +29,9 @@ RUN \
     pip install -U pip && \
     pip install grpcio protobuf
 
-COPY . /
+#COPY . /
+#
+## Run gRPC server and client
+#
+#RUN \
+#   python3 emul_server.py & python3 client.py

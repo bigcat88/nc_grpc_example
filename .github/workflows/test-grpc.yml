@@ -43,4 +43,5 @@ jobs:
           context: .
           file: docker/${{ matrix.docker_file }}.Dockerfile
           push: false
+          cache-from: type=gha,scope=${{ matrix.docker_file }}
           target: proof_of_concept
