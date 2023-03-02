@@ -7,8 +7,7 @@ import "fs.proto";
 
 
 service NCGRPCExampleCore {
-  rpc TaskInit (OCA.NC_GRPC_Example.Proto.Empty) returns (OCA.NC_GRPC_Example.Proto.TaskInitReply) {}
-  rpc TaskStatus (OCA.NC_GRPC_Example.Proto.TaskSetStatusRequest) returns (OCA.NC_GRPC_Example.Proto.Empty) {}
+  rpc TaskInit (OCA.NC_GRPC_Example.Proto.Empty) returns (OCA.NC_GRPC_Example.Proto.Empty) {}
   rpc TaskExit (OCA.NC_GRPC_Example.Proto.TaskExitRequest) returns (OCA.NC_GRPC_Example.Proto.Empty) {}
   rpc TaskLog (OCA.NC_GRPC_Example.Proto.TaskLogRequest) returns (OCA.NC_GRPC_Example.Proto.Empty) {}
   rpc FsGetInfo (OCA.NC_GRPC_Example.Proto.FsGetInfoRequest) returns (OCA.NC_GRPC_Example.Proto.FsListReply) {}
