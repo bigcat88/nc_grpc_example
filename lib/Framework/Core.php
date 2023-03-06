@@ -36,9 +36,6 @@ use OCA\NC_GRPC_Example\Proto\NCGRPCExampleCoreClient;
 use OCA\NC_GRPC_Example\Proto\PBEmpty;
 use OCA\NC_GRPC_Example\Proto\TaskExitRequest;
 use OCA\NC_GRPC_Example\Proto\TaskLogRequest;
-use OCA\NC_GRPC_Example\Proto\TaskSetStatusRequest;
-use OCA\NC_GRPC_Example\Proto\taskStatus;
-use Psr\Log\LoggerInterface;
 
 /**
  * NC_GRPC_Example Framework Core API
@@ -50,14 +47,9 @@ class Core {
 	/** @var UtilsService */
 	private $utils;
 
-	public function __construct(
-		NCGRPCExampleCore $cpa,
-		UtilsService $utils,
-		LoggerInterface $logger
-	) {
+	public function __construct(NCGRPCExampleCore $cpa, UtilsService $utils) {
 		$this->cpa = $cpa;
 		$this->utils = $utils;
-		$this->logger = $logger;
 	}
 
 	/**
@@ -94,16 +86,16 @@ class Core {
 			$funcname = $params['funcname'];
 		}
 		$pathToOcc = getcwd() . '/occ';
-		$cloudPyApiCommand = 'cloud_py_api:grpc:server:bg:run ' . $hostname . ' ' . $port
+		$ncGrpcExampleCommand = 'cloud_py_api:grpc:server:bg:run ' . $hostname . ' ' . $port
 			. ' ' . $cmd . ' ' . $userid . ' ' . $appname . ' ' . $handler  . ' ' . $modpath . ' '
 			. $funcname;
 		if (isset($params['args'])) {
 			$args = $params['args'];
-			$cloudPyApiCommand += array_reduce(json_decode($args), function ($carry, $argument) {
+			$ncGrpcExampleCommand += array_reduce(json_decode($args), function ($carry, $argument) {
 				return $carry += ' ' . $argument;
 			});
 		}
-		$command = $this->utils->getPhpInterpreter() . ' ' . $pathToOcc . ' ' . $cloudPyApiCommand
+		$command = $this->utils->getPhpInterpreter() . ' ' . $pathToOcc . ' ' . $ncGrpcExampleCommand
 			. ' > /dev/null 2>&1 & echo $!';
 		exec($command, $cmdOut);
 		if (isset($cmdOut[0]) && intval($cmdOut[0]) > 0) {
@@ -159,11 +151,6 @@ class Core {
 		return null;
 	}
 
-	public function runPyfrm(): array {
-		// TODO Run Pyfrm to handle task
-		return $this->pythonService->run('/pyfrm/main.py');
-	}
-
 	/**
 	 * Send TaskInit request from given client
 	 *
@@ -176,25 +163,6 @@ class Core {
 	 */
 	public function TaskInit($client): array {
 		return $client->TaskInit(new PBEmpty())->wait();
-	}
-
-	/**
-	 * Send TaskLog request
-	 *
-	 * @param \OCA\NC_GRPC_Example\Proto\NCGRPCExampleCoreClient $client
-	 * @param array $params
-	 *
-	 * @return array [
-	 * 	'response' => OCA\NC_GRPC_Example\Proto\PBEmpty,
-	 * 	'status' => ['metadata', 'code', 'details']
-	 * ]
-	 */
-	public function TaskStatus($client, $params = []): array {
-		$request = new TaskSetStatusRequest();
-		if (isset($params['stCode'])) {
-			$request->setStCode(taskStatus::value(taskStatus::name($params['stCode'])));
-		}
-		return $client->TaskStatus($request)->wait();
 	}
 
 	/**

@@ -9,7 +9,7 @@ use UnexpectedValueException;
 /**
  * docs.nextcloud.com/server/latest/admin_manual/configuration_server/logging_configuration.html#log-level 
  *
- * Protobuf type <code>OCA.NC_GRPC_Example.Proto.logLvl</code>
+ * Protobuf type <code>NC_GRPC_Example.logLvl</code>
  */
 class logLvl
 {

@@ -11,7 +11,7 @@ use Google\Protobuf\Internal\GPBUtil;
 /**
  * No reply. Server must close pipe/socket after this message.
  *
- * Generated from protobuf message <code>OCA.NC_GRPC_Example.Proto.TaskExitRequest</code>
+ * Generated from protobuf message <code>NC_GRPC_Example.TaskExitRequest</code>
  */
 class TaskExitRequest extends \Google\Protobuf\Internal\Message
 {

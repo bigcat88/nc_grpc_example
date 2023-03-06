@@ -11,12 +11,12 @@ use Google\Protobuf\Internal\GPBUtil;
 /**
  * Reply for this is a FsCreateReply message.
  *
- * Generated from protobuf message <code>OCA.NC_GRPC_Example.Proto.FsCreateRequest</code>
+ * Generated from protobuf message <code>NC_GRPC_Example.FsCreateRequest</code>
  */
 class FsCreateRequest extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>.OCA.NC_GRPC_Example.Proto.fsId parentDirId = 1;</code>
+     * Generated from protobuf field <code>.NC_GRPC_Example.fsId parentDirId = 1;</code>
      */
     protected $parentDirId = null;
     /**
@@ -50,7 +50,7 @@ class FsCreateRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>.OCA.NC_GRPC_Example.Proto.fsId parentDirId = 1;</code>
+     * Generated from protobuf field <code>.NC_GRPC_Example.fsId parentDirId = 1;</code>
      * @return \OCA\NC_GRPC_Example\Proto\fsId
      */
     public function getParentDirId()
@@ -59,7 +59,7 @@ class FsCreateRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>.OCA.NC_GRPC_Example.Proto.fsId parentDirId = 1;</code>
+     * Generated from protobuf field <code>.NC_GRPC_Example.fsId parentDirId = 1;</code>
      * @param \OCA\NC_GRPC_Example\Proto\fsId $var
      * @return $this
      */

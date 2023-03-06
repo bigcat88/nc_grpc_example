@@ -10,25 +10,11 @@ class NCGRPCExampleCoreStub {
     /**
      * @param \OCA\NC_GRPC_Example\Proto\PBEmpty $request client request
      * @param \Grpc\ServerContext $context server request context
-     * @return \OCA\NC_GRPC_Example\Proto\TaskInitReply for response data, null if if error occured
+     * @return \OCA\NC_GRPC_Example\Proto\PBEmpty for response data, null if if error occured
      *     initial metadata (if any) and status (if not ok) should be set to $context
      */
     public function TaskInit(
         \OCA\NC_GRPC_Example\Proto\PBEmpty $request,
-        \Grpc\ServerContext $context
-    ): ?\OCA\NC_GRPC_Example\Proto\TaskInitReply {
-        $context->setStatus(\Grpc\Status::unimplemented());
-        return null;
-    }
-
-    /**
-     * @param \OCA\NC_GRPC_Example\Proto\TaskSetStatusRequest $request client request
-     * @param \Grpc\ServerContext $context server request context
-     * @return \OCA\NC_GRPC_Example\Proto\PBEmpty for response data, null if if error occured
-     *     initial metadata (if any) and status (if not ok) should be set to $context
-     */
-    public function TaskStatus(
-        \OCA\NC_GRPC_Example\Proto\TaskSetStatusRequest $request,
         \Grpc\ServerContext $context
     ): ?\OCA\NC_GRPC_Example\Proto\PBEmpty {
         $context->setStatus(\Grpc\Status::unimplemented());
@@ -170,67 +156,61 @@ class NCGRPCExampleCoreStub {
     public final function getMethodDescriptors(): array
     {
         return [
-            '/OCA.NC_GRPC_Example.Proto.NCGRPCExampleCore/TaskInit' => new \Grpc\MethodDescriptor(
+            '/NC_GRPC_Example.NCGRPCExampleCore/TaskInit' => new \Grpc\MethodDescriptor(
                 $this,
                 'TaskInit',
                 '\OCA\NC_GRPC_Example\Proto\PBEmpty',
                 \Grpc\MethodDescriptor::UNARY_CALL
             ),
-            '/OCA.NC_GRPC_Example.Proto.NCGRPCExampleCore/TaskStatus' => new \Grpc\MethodDescriptor(
-                $this,
-                'TaskStatus',
-                '\OCA\NC_GRPC_Example\Proto\TaskSetStatusRequest',
-                \Grpc\MethodDescriptor::UNARY_CALL
-            ),
-            '/OCA.NC_GRPC_Example.Proto.NCGRPCExampleCore/TaskExit' => new \Grpc\MethodDescriptor(
+            '/NC_GRPC_Example.NCGRPCExampleCore/TaskExit' => new \Grpc\MethodDescriptor(
                 $this,
                 'TaskExit',
                 '\OCA\NC_GRPC_Example\Proto\TaskExitRequest',
                 \Grpc\MethodDescriptor::UNARY_CALL
             ),
-            '/OCA.NC_GRPC_Example.Proto.NCGRPCExampleCore/TaskLog' => new \Grpc\MethodDescriptor(
+            '/NC_GRPC_Example.NCGRPCExampleCore/TaskLog' => new \Grpc\MethodDescriptor(
                 $this,
                 'TaskLog',
                 '\OCA\NC_GRPC_Example\Proto\TaskLogRequest',
                 \Grpc\MethodDescriptor::UNARY_CALL
             ),
-            '/OCA.NC_GRPC_Example.Proto.NCGRPCExampleCore/FsGetInfo' => new \Grpc\MethodDescriptor(
+            '/NC_GRPC_Example.NCGRPCExampleCore/FsGetInfo' => new \Grpc\MethodDescriptor(
                 $this,
                 'FsGetInfo',
                 '\OCA\NC_GRPC_Example\Proto\FsGetInfoRequest',
                 \Grpc\MethodDescriptor::UNARY_CALL
             ),
-            '/OCA.NC_GRPC_Example.Proto.NCGRPCExampleCore/FsList' => new \Grpc\MethodDescriptor(
+            '/NC_GRPC_Example.NCGRPCExampleCore/FsList' => new \Grpc\MethodDescriptor(
                 $this,
                 'FsList',
                 '\OCA\NC_GRPC_Example\Proto\FsListRequest',
                 \Grpc\MethodDescriptor::UNARY_CALL
             ),
-            '/OCA.NC_GRPC_Example.Proto.NCGRPCExampleCore/FsRead' => new \Grpc\MethodDescriptor(
+            '/NC_GRPC_Example.NCGRPCExampleCore/FsRead' => new \Grpc\MethodDescriptor(
                 $this,
                 'FsRead',
                 '\OCA\NC_GRPC_Example\Proto\FsReadRequest',
                 \Grpc\MethodDescriptor::SERVER_STREAMING_CALL
             ),
-            '/OCA.NC_GRPC_Example.Proto.NCGRPCExampleCore/FsCreate' => new \Grpc\MethodDescriptor(
+            '/NC_GRPC_Example.NCGRPCExampleCore/FsCreate' => new \Grpc\MethodDescriptor(
                 $this,
                 'FsCreate',
                 '\OCA\NC_GRPC_Example\Proto\FsCreateRequest',
                 \Grpc\MethodDescriptor::UNARY_CALL
             ),
-            '/OCA.NC_GRPC_Example.Proto.NCGRPCExampleCore/FsWrite' => new \Grpc\MethodDescriptor(
+            '/NC_GRPC_Example.NCGRPCExampleCore/FsWrite' => new \Grpc\MethodDescriptor(
                 $this,
                 'FsWrite',
                 '\OCA\NC_GRPC_Example\Proto\FsWriteRequest',
                 \Grpc\MethodDescriptor::CLIENT_STREAMING_CALL
             ),
-            '/OCA.NC_GRPC_Example.Proto.NCGRPCExampleCore/FsDelete' => new \Grpc\MethodDescriptor(
+            '/NC_GRPC_Example.NCGRPCExampleCore/FsDelete' => new \Grpc\MethodDescriptor(
                 $this,
                 'FsDelete',
                 '\OCA\NC_GRPC_Example\Proto\FsDeleteRequest',
                 \Grpc\MethodDescriptor::UNARY_CALL
             ),
-            '/OCA.NC_GRPC_Example.Proto.NCGRPCExampleCore/FsMove' => new \Grpc\MethodDescriptor(
+            '/NC_GRPC_Example.NCGRPCExampleCore/FsMove' => new \Grpc\MethodDescriptor(
                 $this,
                 'FsMove',
                 '\OCA\NC_GRPC_Example\Proto\FsMoveRequest',

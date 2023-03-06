@@ -53,7 +53,7 @@ class RunGrpcClientFsReadCommand extends Command {
 	}
 
 	protected function configure(): void {
-		$this->setName("cloud_py_api:grpc:client:fs:read");
+		$this->setName("nc_grpc_example:grpc:client:fs:read");
 		$this->setDescription("Run GRPC client FsRead request");
 		$this->addArgument(self::ARGUMENT_HOSTNAME, InputArgument::REQUIRED);
 		$this->addArgument(self::ARGUMENT_PORT, InputArgument::REQUIRED);

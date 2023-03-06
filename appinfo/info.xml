@@ -23,21 +23,17 @@ Nextcloud gRPC API Framework
 		<nextcloud min-version="24" max-version="26" />
 	</dependencies>
 	<commands>
-		<command>OCA\NC_GRPC_Example\Command\RunGrpcServerCommand</command>
 		<command>OCA\NC_GRPC_Example\Command\RunGrpcBgServerCommand</command>
-		<command>OCA\NC_GRPC_Example\Command\RunGrpcClientTaskInitCommand</command>
-		<command>OCA\NC_GRPC_Example\Command\RunGrpcClientTaskStatusCommand</command>
-		<command>OCA\NC_GRPC_Example\Command\RunGrpcClientTaskExitCommand</command>
-		<command>OCA\NC_GRPC_Example\Command\RunGrpcClientTaskLogCommand</command>
-		<command>OCA\NC_GRPC_Example\Command\RunGrpcClientFsInfoCommand</command>
-		<command>OCA\NC_GRPC_Example\Command\RunGrpcClientFsListCommand</command>
-		<command>OCA\NC_GRPC_Example\Command\RunGrpcClientFsReadCommand</command>
-		<command>OCA\NC_GRPC_Example\Command\RunGrpcClientFsWriteCommand</command>
 		<command>OCA\NC_GRPC_Example\Command\RunGrpcClientFsCreateCommand</command>
 		<command>OCA\NC_GRPC_Example\Command\RunGrpcClientFsDeleteCommand</command>
+		<command>OCA\NC_GRPC_Example\Command\RunGrpcClientFsInfoCommand</command>
+		<command>OCA\NC_GRPC_Example\Command\RunGrpcClientFsListCommand</command>
 		<command>OCA\NC_GRPC_Example\Command\RunGrpcClientFsMoveCommand</command>
-		<command>OCA\NC_GRPC_Example\Command\RunGrpcClientAppCheckCommand</command>
-		<command>OCA\NC_GRPC_Example\Command\FrameworkInstallCommand</command>
-		<command>OCA\NC_GRPC_Example\Command\FrameworkCheckCommand</command>
+		<command>OCA\NC_GRPC_Example\Command\RunGrpcClientFsReadCommand</command>
+		<command>OCA\NC_GRPC_Example\Command\RunGrpcClientFsWriteCommand</command>
+		<command>OCA\NC_GRPC_Example\Command\RunGrpcClientTaskExitCommand</command>
+		<command>OCA\NC_GRPC_Example\Command\RunGrpcClientTaskLogCommand</command>
+		<command>OCA\NC_GRPC_Example\Command\RunGrpcClientTaskStatusCommand</command>
+		<command>OCA\NC_GRPC_Example\Command\RunGrpcServerCommand</command>
 	</commands>
 </info>

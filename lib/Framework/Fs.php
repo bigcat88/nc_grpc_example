@@ -28,7 +28,7 @@ declare(strict_types=1);
 
 namespace OCA\NC_GRPC_Example\Framework;
 
-use OCA\NC_GRPC_Example\Proto\CloudPyApiCoreClient;
+use OCA\NC_GRPC_Example\Proto\NCGRPCExampleCoreClient;
 use OCA\NC_GRPC_Example\Proto\FsCreateRequest;
 use OCA\NC_GRPC_Example\Proto\FsDeleteRequest;
 use OCA\NC_GRPC_Example\Proto\FsGetInfoRequest;
@@ -48,7 +48,7 @@ class Fs {
 	/**
 	 * Send FsList request
 	 *
-	 * @param CloudPyApiCoreClient $client
+	 * @param NCGRPCExampleCoreClient $client
 	 * @param array $params
 	 *
 	 * @return array [
@@ -66,7 +66,7 @@ class Fs {
 	/**
 	 * Send FsGetInfo request
 	 *
-	 * @param CloudPyApiCoreClient $client
+	 * @param NCGRPCExampleCoreClient $client
 	 * @param array $params
 	 *
 	 * @return array [
@@ -84,7 +84,7 @@ class Fs {
 	/**
 	 * Send FsRead request
 	 *
-	 * @param CloudPyApiCoreClient $client
+	 * @param NCGRPCExampleCoreClient $client
 	 * @param array $params
 	 *
 	 * @return \Grpc\ServerStreamingCall
@@ -105,7 +105,7 @@ class Fs {
 	/**
 	 * Send FsGetInfo request
 	 *
-	 * @param CloudPyApiCoreClient $client
+	 * @param NCGRPCExampleCoreClient $client
 	 * @param array $params
 	 *
 	 * @return \Grpc\ClientStreamingCall
@@ -132,7 +132,7 @@ class Fs {
 	/**
 	 * Send FsCreate request
 	 *
-	 * @param \OCA\NC_GRPC_Example\Proto\CloudPyApiCoreClient $client
+	 * @param \OCA\NC_GRPC_Example\Proto\NCGRPCExampleCoreClient $client
 	 * @param array $params
 	 *
 	 * @return array [
@@ -159,7 +159,7 @@ class Fs {
 	/**
 	 * Send FsDelete request
 	 *
-	 * @param \OCA\NC_GRPC_Example\Proto\CloudPyApiCoreClient $client
+	 * @param \OCA\NC_GRPC_Example\Proto\NCGRPCExampleCoreClient $client
 	 * @param array $params
 	 *
 	 * @return array [
@@ -177,7 +177,7 @@ class Fs {
 	/**
 	 * Send FsMove request
 	 *
-	 * @param \OCA\NC_GRPC_Example\Proto\CloudPyApiCoreClient $client
+	 * @param \OCA\NC_GRPC_Example\Proto\NCGRPCExampleCoreClient $client
 	 * @param array $params
 	 *
 	 * @return array [

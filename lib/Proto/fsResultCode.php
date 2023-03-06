@@ -7,7 +7,7 @@ namespace OCA\NC_GRPC_Example\Proto;
 use UnexpectedValueException;
 
 /**
- * Protobuf type <code>OCA.NC_GRPC_Example.Proto.fsResultCode</code>
+ * Protobuf type <code>NC_GRPC_Example.fsResultCode</code>
  */
 class fsResultCode
 {

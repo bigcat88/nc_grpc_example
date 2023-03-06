@@ -11,12 +11,12 @@ use Google\Protobuf\Internal\GPBUtil;
 /**
  * Reply for this is a FsReply message.
  *
- * Generated from protobuf message <code>OCA.NC_GRPC_Example.Proto.FsDeleteRequest</code>
+ * Generated from protobuf message <code>NC_GRPC_Example.FsDeleteRequest</code>
  */
 class FsDeleteRequest extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>.OCA.NC_GRPC_Example.Proto.fsId fileId = 1;</code>
+     * Generated from protobuf field <code>.NC_GRPC_Example.fsId fileId = 1;</code>
      */
     protected $fileId = null;
 
@@ -35,7 +35,7 @@ class FsDeleteRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>.OCA.NC_GRPC_Example.Proto.fsId fileId = 1;</code>
+     * Generated from protobuf field <code>.NC_GRPC_Example.fsId fileId = 1;</code>
      * @return \OCA\NC_GRPC_Example\Proto\fsId
      */
     public function getFileId()
@@ -44,7 +44,7 @@ class FsDeleteRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>.OCA.NC_GRPC_Example.Proto.fsId fileId = 1;</code>
+     * Generated from protobuf field <code>.NC_GRPC_Example.fsId fileId = 1;</code>
      * @param \OCA\NC_GRPC_Example\Proto\fsId $var
      * @return $this
      */

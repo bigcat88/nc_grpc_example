@@ -32,7 +32,6 @@ use OCA\NC_GRPC_Example\Proto\NCGRPCExampleCoreStub;
 
 use OCA\NC_GRPC_Example\Framework\Handle\CoreHandle;
 use OCA\NC_GRPC_Example\Framework\Handle\FsHandle;
-use OCA\NC_GRPC_Example\Framework\Handle\DbHandle;
 
 class NCGRPCExampleCore extends NCGRPCExampleCoreStub {
 	/** @var CoreHandle */
@@ -44,20 +43,6 @@ class NCGRPCExampleCore extends NCGRPCExampleCoreStub {
 	public function __construct(CoreHandle $core, FsHandle $fs) {
 		$this->core = $core;
 		$this->fs = $fs;
-	}
-
-	/**
-	 * @param \OCA\NC_GRPC_Example\Proto\PBEmpty $request client request
-	 * @param \Grpc\ServerContext $context server request context
-	 * @return \OCA\NC_GRPC_Example\Proto\TaskInitReply for response data, null if if error occured
-	 *     initial metadata (if any) and status (if not ok) should be set to $context
-	 */
-	public function TaskInit(
-		\OCA\NC_GRPC_Example\Proto\PBEmpty $request,
-		\Grpc\ServerContext $context
-	): ?\OCA\NC_GRPC_Example\Proto\TaskInitReply {
-		$context->setStatus(\Grpc\Status::ok());
-		return $this->core->init($request);
 	}
 
 	/**

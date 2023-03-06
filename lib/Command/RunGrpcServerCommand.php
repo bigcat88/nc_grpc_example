@@ -82,7 +82,7 @@ class RunGrpcServerCommand extends Command {
 		$args = $input->getArgument(self::ARGUMENT_ARGS);
 
 		$pathToOcc = getcwd() . '/occ';
-		$cloudPyApiCommand = 'cloud_py_api:grpc:server:bg:run ' . $hostname . ' ' . $port
+		$cloudPyApiCommand = 'nc_grpc_example:grpc:server:bg:run ' . $hostname . ' ' . $port
 			. ' ' . $cmd . ' ' . $userid . ' ' . $appname . ' ' . $handler . ' ' . $modpath
 			. ' ' . $funcname;
 		if ($args !== null) {

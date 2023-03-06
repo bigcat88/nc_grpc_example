@@ -50,7 +50,7 @@ class RunGrpcClientTaskExitCommand extends Command {
 	}
 
 	protected function configure(): void {
-		$this->setName("cloud_py_api:grpc:client:task:exit");
+		$this->setName("nc_grpc_example:grpc:client:task:exit");
 		$this->setDescription("Run GRPC client TaskExit request");
 		$this->addArgument(self::ARGUMENT_HOSTNAME, InputArgument::REQUIRED);
 		$this->addArgument(self::ARGUMENT_PORT, InputArgument::REQUIRED);

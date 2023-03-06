@@ -9,12 +9,12 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * Generated from protobuf message <code>OCA.NC_GRPC_Example.Proto.FsListReply</code>
+ * Generated from protobuf message <code>NC_GRPC_Example.FsListReply</code>
  */
 class FsListReply extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>repeated .OCA.NC_GRPC_Example.Proto.FsNodeInfo nodes = 1;</code>
+     * Generated from protobuf field <code>repeated .NC_GRPC_Example.FsNodeInfo nodes = 1;</code>
      */
     private $nodes;
 
@@ -33,7 +33,7 @@ class FsListReply extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>repeated .OCA.NC_GRPC_Example.Proto.FsNodeInfo nodes = 1;</code>
+     * Generated from protobuf field <code>repeated .NC_GRPC_Example.FsNodeInfo nodes = 1;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
     public function getNodes()
@@ -42,7 +42,7 @@ class FsListReply extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>repeated .OCA.NC_GRPC_Example.Proto.FsNodeInfo nodes = 1;</code>
+     * Generated from protobuf field <code>repeated .NC_GRPC_Example.FsNodeInfo nodes = 1;</code>
      * @param \OCA\NC_GRPC_Example\Proto\FsNodeInfo[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
      */

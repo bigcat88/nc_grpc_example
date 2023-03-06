@@ -11,16 +11,16 @@ use Google\Protobuf\Internal\GPBUtil;
 /**
  * Reply for FsCreateRequest.
  *
- * Generated from protobuf message <code>OCA.NC_GRPC_Example.Proto.FsCreateReply</code>
+ * Generated from protobuf message <code>NC_GRPC_Example.FsCreateReply</code>
  */
 class FsCreateReply extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>.OCA.NC_GRPC_Example.Proto.fsResultCode resCode = 1;</code>
+     * Generated from protobuf field <code>.NC_GRPC_Example.fsResultCode resCode = 1;</code>
      */
     protected $resCode = 0;
     /**
-     * Generated from protobuf field <code>.OCA.NC_GRPC_Example.Proto.fsId fileId = 2;</code>
+     * Generated from protobuf field <code>.NC_GRPC_Example.fsId fileId = 2;</code>
      */
     protected $fileId = null;
 
@@ -40,7 +40,7 @@ class FsCreateReply extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>.OCA.NC_GRPC_Example.Proto.fsResultCode resCode = 1;</code>
+     * Generated from protobuf field <code>.NC_GRPC_Example.fsResultCode resCode = 1;</code>
      * @return int
      */
     public function getResCode()
@@ -49,7 +49,7 @@ class FsCreateReply extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>.OCA.NC_GRPC_Example.Proto.fsResultCode resCode = 1;</code>
+     * Generated from protobuf field <code>.NC_GRPC_Example.fsResultCode resCode = 1;</code>
      * @param int $var
      * @return $this
      */
@@ -62,7 +62,7 @@ class FsCreateReply extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>.OCA.NC_GRPC_Example.Proto.fsId fileId = 2;</code>
+     * Generated from protobuf field <code>.NC_GRPC_Example.fsId fileId = 2;</code>
      * @return \OCA\NC_GRPC_Example\Proto\fsId
      */
     public function getFileId()
@@ -71,7 +71,7 @@ class FsCreateReply extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>.OCA.NC_GRPC_Example.Proto.fsId fileId = 2;</code>
+     * Generated from protobuf field <code>.NC_GRPC_Example.fsId fileId = 2;</code>
      * @param \OCA\NC_GRPC_Example\Proto\fsId $var
      * @return $this
      */

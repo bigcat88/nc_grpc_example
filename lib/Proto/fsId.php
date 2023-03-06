@@ -9,7 +9,7 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * Generated from protobuf message <code>OCA.NC_GRPC_Example.Proto.fsId</code>
+ * Generated from protobuf message <code>NC_GRPC_Example.fsId</code>
  */
 class fsId extends \Google\Protobuf\Internal\Message
 {

@@ -1,6 +1,8 @@
 syntax = "proto3";
 
-package OCA.NC_GRPC_Example.Proto;
+package NC_GRPC_Example;
+
+option php_namespace = "OCA\\NC_GRPC_Example\\Proto";
 
 enum fsResultCode {
   NO_ERROR = 0;

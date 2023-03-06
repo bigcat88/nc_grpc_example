@@ -11,12 +11,12 @@ use Google\Protobuf\Internal\GPBUtil;
 /**
  * No reply.
  *
- * Generated from protobuf message <code>OCA.NC_GRPC_Example.Proto.TaskLogRequest</code>
+ * Generated from protobuf message <code>NC_GRPC_Example.TaskLogRequest</code>
  */
 class TaskLogRequest extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>.OCA.NC_GRPC_Example.Proto.logLvl log_lvl = 1;</code>
+     * Generated from protobuf field <code>.NC_GRPC_Example.logLvl log_lvl = 1;</code>
      */
     protected $log_lvl = 0;
     /**
@@ -51,7 +51,7 @@ class TaskLogRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>.OCA.NC_GRPC_Example.Proto.logLvl log_lvl = 1;</code>
+     * Generated from protobuf field <code>.NC_GRPC_Example.logLvl log_lvl = 1;</code>
      * @return int
      */
     public function getLogLvl()
@@ -60,7 +60,7 @@ class TaskLogRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>.OCA.NC_GRPC_Example.Proto.logLvl log_lvl = 1;</code>
+     * Generated from protobuf field <code>.NC_GRPC_Example.logLvl log_lvl = 1;</code>
      * @param int $var
      * @return $this
      */

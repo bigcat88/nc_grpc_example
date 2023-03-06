@@ -28,7 +28,6 @@ declare(strict_types=1);
 
 namespace OCA\NC_GRPC_Example\Service;
 
-use OCP\Files\IAppData;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -37,13 +36,10 @@ use Grpc\RpcServer;
 use Grpc\ClientStreamingCall;
 use Grpc\ServerStreamingCall;
 
-use OCA\NC_GRPC_Example\Proto\TaskInitReply;
-use OCA\NC_GRPC_Example\Proto\TaskInitReply\cfgOptions;
 use OCA\NC_GRPC_Example\Proto\FsCreateReply;
 use OCA\NC_GRPC_Example\Proto\FsNodeInfo;
 use OCA\NC_GRPC_Example\Proto\FsReadReply;
 use OCA\NC_GRPC_Example\Proto\FsReply;
-use OCA\NC_GRPC_Example\Proto\taskType;
 
 use OCA\NC_GRPC_Example\Framework\Core;
 use OCA\NC_GRPC_Example\Framework\Fs;
@@ -85,74 +81,11 @@ class ServerService {
 			'hostname' => $hostname,
 			'port' => $port
 		]);
-		// TODO Add running pyfrm
-		// $pyfrmResult = $this->cpaCore->runPyfrm();
 		$server->run();
-		// $this->logger->info('[' . self::class . '] pyfrmResult: ' . json_encode($pyfrmResult));
 	}
 
 	public static function testHandler(string $result = null) {
 		self::$staticLogger->info('[' . self::class . '] testHandler executed, result: ' . $result);
-	}
-
-	public function testTaskInit(InputInterface $input, OutputInterface $output) {
-		$hostname = $input->getArgument('hostname');
-		$port = $input->getArgument('port');
-		$pid = $this->createServerMock($hostname, $port);
-		if ($pid !== -1) {
-			sleep(1);
-			$output->writeln('Server started [pid:' . $pid . '] ... Creating client.');
-			$client = $this->cpaCore->createClient([
-				'hostname' => $hostname,
-				'port' => $port,
-			]);
-			/** @var TaskInitReply $response */
-			list($response, $status) = $this->cpaCore->TaskInit($client);
-			if (isset($status)) {
-				$output->writeln('Response status: ' . json_encode($status));
-			}
-			if (isset($response)) {
-				$output->writeln('Response: ');
-				$output->writeln('cmdType: ' . taskType::name($response->getCmdType()));
-				$output->writeln('appname: ' . $response->getAppName());
-				$output->writeln('handler: ' . $response->getHandler());
-				$output->writeln('modpath: ' . $response->getModPath());
-				$output->writeln('funcname: ' . $response->getFuncName());
-				if ($response->getArgs() !== null) {
-					$output->write('args:');
-					foreach ($response->getArgs() as $argument) {
-						$output->write(' ' . $argument);
-					}
-					$output->writeln('');
-				}
-				$output->writeln('Config: ');
-				/** @var cfgOptions */
-				$cfg = $response->getConfig();
-				$output->writeln('userId: ' . $cfg->getUserId());
-				$output->writeln('logLvl: ' . $cfg->getLogLvl());
-				$output->writeln('frameworkAppData: ' . $cfg->getDataFolder());
-				$output->writeln('useFileDirect: ' . json_encode($cfg->getUseFileDirect()));
-				$output->writeln('useDBDirect: ' . json_encode($cfg->getUseDBDirect()));
-				$dbCfg = $response->getDbCfg();
-				$output->writeln('dbhost: ' . $dbCfg->getDbHost());
-				$output->writeln('dbtype: ' . $dbCfg->getDbType());
-				$output->writeln('dbname: ' . $dbCfg->getDbName());
-				$output->writeln('dbuser: ' . $dbCfg->getDbUser());
-				$output->writeln('dbpass: ' . $dbCfg->getDbPass());
-				$output->writeln('dbprefix: ' . $dbCfg->getDbPrefix());
-				$output->writeln('iniHost: ' . $dbCfg->getIniDbHost());
-				$output->writeln('iniPort: ' . $dbCfg->getIniDbPort());
-				$output->writeln('iniSocket: ' . $dbCfg->getIniDbSocket());
-				$output->writeln('dbDriverSslKey: ' . $dbCfg->getDbDriverSslKey());
-				$output->writeln('dbDriverSslCert: ' . $dbCfg->getDbDriverSslCert());
-				$output->writeln('dbDriverSslCa: ' . $dbCfg->getDbDriverSslCa());
-				$output->writeln('dbDriverSslVerifyCrt: ' . $dbCfg->getDbDriverSslVerifyCrt());
-			}
-			$output->writeln('Closing server...');
-			$this->cpaCore->TaskExit($client, ['result' => 'TaskInit successfull']);
-		} else {
-			$output->writeln('Server not started...');
-		}
 	}
 
 	public function testTaskStatus(InputInterface $input, OutputInterface $output) {
@@ -346,7 +279,7 @@ class ServerService {
 		return $this->cpaCore->runBgGrpcServer([
 			'hostname' => $hostname,
 			'port' => $port,
-			'cmd' => taskType::T_CHECK,
+			'cmd' => 1,
 			'userid' => 'admin',
 			'appname' => 'mediadc',
 			'handler' => '"\OCA\NC_GRPC_Example\Service\ServerService::testHandler"',

@@ -52,7 +52,7 @@ class RunGrpcClientFsWriteCommand extends Command {
 	}
 
 	protected function configure(): void {
-		$this->setName("cloud_py_api:grpc:client:fs:write");
+		$this->setName("nc_grpc_example:grpc:client:fs:write");
 		$this->setDescription("Run GRPC client FsWrite request");
 		$this->addArgument(self::ARGUMENT_HOSTNAME, InputArgument::REQUIRED);
 		$this->addArgument(self::ARGUMENT_PORT, InputArgument::REQUIRED);

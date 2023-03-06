@@ -57,7 +57,7 @@ class RunGrpcBgServerCommand extends Command {
 	}
 
 	protected function configure(): void {
-		$this->setName("cloud_py_api:grpc:server:bg:run");
+		$this->setName("nc_grpc_example:grpc:server:bg:run");
 		$this->setDescription("Run GRPC server");
 		$this->addArgument(self::ARGUMENT_HOSTNAME, InputArgument::REQUIRED);
 		$this->addArgument(self::ARGUMENT_PORT, InputArgument::REQUIRED);

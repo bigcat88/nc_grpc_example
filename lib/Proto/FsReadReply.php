@@ -9,12 +9,12 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * Generated from protobuf message <code>OCA.NC_GRPC_Example.Proto.FsReadReply</code>
+ * Generated from protobuf message <code>NC_GRPC_Example.FsReadReply</code>
  */
 class FsReadReply extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>.OCA.NC_GRPC_Example.Proto.fsResultCode resCode = 1;</code>
+     * Generated from protobuf field <code>.NC_GRPC_Example.fsResultCode resCode = 1;</code>
      */
     protected $resCode = 0;
     /**
@@ -46,7 +46,7 @@ class FsReadReply extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>.OCA.NC_GRPC_Example.Proto.fsResultCode resCode = 1;</code>
+     * Generated from protobuf field <code>.NC_GRPC_Example.fsResultCode resCode = 1;</code>
      * @return int
      */
     public function getResCode()
@@ -55,7 +55,7 @@ class FsReadReply extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>.OCA.NC_GRPC_Example.Proto.fsResultCode resCode = 1;</code>
+     * Generated from protobuf field <code>.NC_GRPC_Example.fsResultCode resCode = 1;</code>
      * @param int $var
      * @return $this
      */

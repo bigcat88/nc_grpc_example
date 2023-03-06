@@ -29,105 +29,22 @@ declare(strict_types=1);
 namespace OCA\NC_GRPC_Example\Framework\Handle;
 
 use Grpc\ServerCallWriter;
-use OCP\IConfig;
 
 use OCA\NC_GRPC_Example\Proto\PBEmpty;
 use OCA\NC_GRPC_Example\Proto\TaskExitRequest;
-use OCA\NC_GRPC_Example\Proto\TaskInitReply;
-use OCA\NC_GRPC_Example\Proto\TaskInitReply\cfgOptions;
-use OCA\NC_GRPC_Example\Proto\TaskLogRequest;
-use OCA\NC_GRPC_Example\Proto\TaskSetStatusRequest;
 
-use OCA\NC_GRPC_Example\Proto\dbConfig;
+use OCA\NC_GRPC_Example\Proto\TaskLogRequest;
+
 use OCA\NC_GRPC_Example\Proto\logLvl;
 use OCA\NC_GRPC_Example\Service\ServerService;
 use Psr\Log\LoggerInterface;
 
 class CoreHandle {
-	/** @var IConfig */
-	private $config;
-
 	/** @var LoggerInterface */
 	private $logger;
 
-	public function __construct(
-		IConfig $config,
-		LoggerInterface $logger
-	) {
-		$this->config = $config;
+	public function __construct(LoggerInterface $logger) {
 		$this->logger = $logger;
-	}
-
-	/**
-	 * Task initialization
-	 *
-	 * @param PBEmpty $request
-	 *
-	 * @return TaskInitReply|null
-	 */
-	public function init(PBEmpty $request): ?TaskInitReply {
-		$taskInitReply = new TaskInitReply();
-		if (ServerService::$APP !== null) {
-			if (isset(ServerService::$APP['cmd'])) {
-				$taskInitReply->setCmdType(ServerService::$APP['cmd']);
-			}
-			if (isset(ServerService::$APP['appname'])) {
-				$taskInitReply->setAppName(ServerService::$APP['appname']);
-			}
-			if (isset(ServerService::$APP['modpath'])) {
-				$taskInitReply->setModPath(ServerService::$APP['modpath']);
-			}
-			if (isset(ServerService::$APP['funcname'])) {
-				$taskInitReply->setFuncName(ServerService::$APP['funcname']);
-			}
-			if (isset(ServerService::$APP['args'])) {
-				$taskInitReply->setArgs(ServerService::$APP['args']);
-			}
-			$cfg = new cfgOptions();
-			$cfg->setLogLvl(logLvl::value(logLvl::name($this->config->getSystemValue('loglevel'))));
-			$cfg->setDataFolder($this->config->getSystemValue('datadirectory'));
-			// $cfg->setDataFolder($this->appsService->getAppDataFolderAbsPath(Application::APP_ID));
-			if (isset(ServerService::$APP['userid'])) {
-				$cfg->setUserId(ServerService::$APP['userid']);
-			}
-			$cfg->setUseDBDirect(false);
-			$cfg->setUseFileDirect(false);
-			$dbCfg = new dbConfig();
-			$dbCfg->setDbHost($this->config->getSystemValue('dbhost'));
-			$dbCfg->setDbType($this->config->getSystemValue('dbtype'));
-			$dbCfg->setDbName($this->config->getSystemValue('dbname'));
-			$dbCfg->setDbUser($this->config->getSystemValue('dbuser'));
-			$dbCfg->setDbPass($this->config->getSystemValue('dbpassword'));
-			$dbCfg->setDbPrefix($this->config->getSystemValue('dbtableprefix'));
-			$dbCfg->setIniDbHost(ini_get('mysqli.default_host'));
-			$dbCfg->setIniDbPort(ini_get('mysqli.default_port'));
-			$dbCfg->setIniDbSocket(ini_get('pdo_mysql.default_socket'));
-			$dbdriveroptions = $this->config->getSystemValue('dbdriveroptions');
-			if (isset($dbdriveroptions) && $dbdriveroptions !== '') {
-				$dbCfg->setDbDriverSslKey($dbdriveroptions[\PDO::MYSQL_ATTR_SSL_KEY]);
-				$dbCfg->setDbDriverSslCert($dbdriveroptions[\PDO::MYSQL_ATTR_SSL_CERT]);
-				$dbCfg->setDbDriverSslCa($dbdriveroptions[\PDO::MYSQL_ATTR_SSL_CA]);
-				$dbCfg->setDbDriverSslVerifyCrt($dbdriveroptions[\PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT]);
-			}
-			$taskInitReply->setDbCfg($dbCfg);
-			$taskInitReply->setConfig($cfg);
-			if (isset(ServerService::$APP['handler'])) {
-				$taskInitReply->setHandler(ServerService::$APP['handler']);
-			}
-		}
-		return $taskInitReply;
-	}
-
-	/**
-	 * Set task status
-	 *
-	 * @param TaskSetStatusRequest $request
-	 *
-	 * @return PBEmpty|null
-	 */
-	public function status(TaskSetStatusRequest $request): ?PBEmpty {
-		ServerService::$APP['status'] = $request->getStCode();
-		return new PBEmpty(null);
 	}
 
 	/**
@@ -153,12 +70,7 @@ class CoreHandle {
 	 * @return PBEmpty|null
 	 */
 	public function log(TaskLogRequest $request): ?PBEmpty {
-		// $appDataFolder = $this->appsService->getAppDataFolderAbsPath(Application::APP_ID);
-		// $handle = fopen($appDataFolder . '/pyfrm_log.log', 'a+');
 		$logLvl = $request->getLogLvl();
-		// if ($handle) {
-		$logLvl = $request->getLogLvl();
-		// fwrite($handle, PHP_EOL . '[' . date('H:i:s d-m-Y') . '] ' . logLvl::name($logLvl) . ':' . PHP_EOL . PHP_EOL);
 		$msg = '';
 		/** @var string $row */
 		foreach ($request->getContent() as $row) {
@@ -177,8 +89,6 @@ class CoreHandle {
 		if ($logLvl === logLvl::FATAL) {
 			$this->logger->emergency('[' . $request->getModule() . '] ' . $msg !== '' ? $msg : $request->getContent());
 		}
-			// fclose($handle);
-		// }
 		return new PBEmpty(null);
 	}
 }
